@@ -1,0 +1,520 @@
+
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>S LeveL | Натяжні стелі преміум-якості у Києві</title>
+    <meta name="description" content="Ідеально рівна стеля. Стильний інтер’єр. Гарантія якості. Замовте безкоштовний замір сьогодні.">
+    
+    <!-- Scripts & Styles -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+    
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            scroll-behavior: smooth;
+        }
+        .font-serif {
+            font-family: 'Playfair Display', serif;
+        }
+        .hero-overlay {
+            background: linear-gradient(to bottom, rgba(0,0,0,0.6), rgba(0,0,0,0.3));
+        }
+        .bg-glass {
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(10px);
+        }
+        /* Custom animations */
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .animate-fade-up {
+            animation: fadeInUp 0.7s ease-out forwards;
+        }
+        .delay-100 { animation-delay: 0.1s; }
+        .delay-200 { animation-delay: 0.2s; }
+        .delay-300 { animation-delay: 0.3s; }
+        
+        /* Modal scroll lock */
+        body.modal-open {
+            overflow: hidden;
+        }
+        
+        .google-btn {
+            background: white;
+            color: #4285F4;
+            border: 1px solid #4285F4;
+            transition: all 0.3s ease;
+        }
+        .google-btn:hover {
+            background: #4285F4;
+            color: white;
+        }
+    </style>
+<script type="importmap">
+{
+  "imports": {
+    "react": "https://esm.sh/react@^19.2.4",
+    "lucide-react": "https://esm.sh/lucide-react@^0.574.0",
+    "react/": "https://esm.sh/react@^19.2.4/"
+  }
+}
+</script>
+<link rel="stylesheet" href="/index.css">
+</head>
+<body class="bg-white text-gray-900">
+
+    <!-- Header -->
+    <header id="main-header" class="fixed w-full z-50 transition-all duration-300 bg-transparent py-5">
+        <div class="container mx-auto px-4 md:px-6 flex items-center justify-between">
+            <a href="#" class="flex items-center space-x-2">
+                <span id="logo-text" class="text-2xl font-bold tracking-tighter text-white">
+                    S <span class="text-blue-500">LeveL</span>
+                </span>
+            </a>
+
+            <!-- Desktop Nav -->
+            <nav class="hidden md:flex items-center space-x-8">
+                <a href="#about" class="nav-link text-sm font-medium text-white/90 hover:text-blue-400 transition-colors">Про нас</a>
+                <a href="#services" class="nav-link text-sm font-medium text-white/90 hover:text-blue-400 transition-colors">Послуги</a>
+                <a href="#portfolio" class="nav-link text-sm font-medium text-white/90 hover:text-blue-400 transition-colors">Портфоліо</a>
+                <a href="#reviews" class="nav-link text-sm font-medium text-white/90 hover:text-blue-400 transition-colors">Відгуки</a>
+                <a href="#contact" class="nav-link text-sm font-medium text-white/90 hover:text-blue-400 transition-colors">Контакти</a>
+                <a href="tel:0986681181" id="header-cta" class="flex items-center space-x-2 px-4 py-2 rounded-full border border-white text-white hover:bg-white hover:text-blue-600 transition-all">
+                    <i data-lucide="phone" class="w-4 h-4"></i>
+                    <span class="font-semibold text-sm">098 668 1181</span>
+                </a>
+            </nav>
+
+            <!-- Mobile Toggle -->
+            <button id="mobile-menu-toggle" class="md:hidden p-2 text-white">
+                <i data-lucide="menu" id="menu-icon"></i>
+            </button>
+        </div>
+
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden md:hidden absolute top-full left-0 w-full bg-white shadow-xl animate-fade-up">
+            <nav class="flex flex-col p-6 space-y-4">
+                <a href="#about" class="mobile-nav-link text-lg font-medium text-gray-800 border-b border-gray-100 pb-2">Про нас</a>
+                <a href="#services" class="mobile-nav-link text-lg font-medium text-gray-800 border-b border-gray-100 pb-2">Послуги</a>
+                <a href="#portfolio" class="mobile-nav-link text-lg font-medium text-gray-800 border-b border-gray-100 pb-2">Портфоліо</a>
+                <a href="#reviews" class="mobile-nav-link text-lg font-medium text-gray-800 border-b border-gray-100 pb-2">Відгуки</a>
+                <a href="#contact" class="mobile-nav-link text-lg font-medium text-gray-800 border-b border-gray-100 pb-2">Контакти</a>
+                <a href="tel:0986681181" class="flex items-center justify-center space-x-2 bg-blue-600 text-white py-3 rounded-xl font-bold">
+                    <i data-lucide="phone" class="w-5 h-5"></i>
+                    <span>Подзвонити зараз</span>
+                </a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="relative h-screen min-h-[600px] flex items-center overflow-hidden">
+        <div class="absolute inset-0 bg-cover bg-center z-0" style="background-image: url('https://images.unsplash.com/photo-1600585154526-990dcea4db0d?auto=format&fit=crop&q=80&w=1920')">
+            <div class="absolute inset-0 hero-overlay"></div>
+        </div>
+        <div class="container mx-auto px-4 md:px-6 relative z-10 text-white mt-10">
+            <div class="max-w-3xl">
+                <h1 class="text-4xl md:text-6xl lg:text-7xl font-serif font-bold leading-tight mb-6 animate-fade-up">
+                    Натяжні стелі <br>
+                    <span class="text-blue-400">преміум-якості</span> у Києві
+                </h1>
+                <p class="text-lg md:text-2xl text-gray-200 mb-10 max-w-xl animate-fade-up delay-100">
+                    Ідеально рівна стеля. Стильний інтер’єр. Гарантія якості від професіоналів S LeveL.
+                </p>
+                <div class="flex flex-col sm:flex-row gap-4 animate-fade-up delay-200">
+                    <a href="#contact" class="bg-blue-600 hover:bg-blue-700 text-white px-8 py-4 rounded-full font-bold text-center transition-all transform hover:scale-105">
+                        Отримати безкоштовний замір
+                    </a>
+                    <a href="tel:0986681181" class="bg-white/10 hover:bg-white/20 backdrop-blur-md border border-white/30 text-white px-8 py-4 rounded-full font-bold text-center transition-all">
+                        Подзвонити зараз
+                    </a>
+                </div>
+            </div>
+        </div>
+        <!-- Floating Badge -->
+        <a href="https://www.google.com/maps/place/S+LeveL+--+%D0%BD%D0%B0%D1%82%D1%8F%D0%B6%D0%BD%D1%8B%D0%B5+%D0%BF%D0%BE%D1%82%D0%BE%D0%BB%D0%BA%D0%B8/@50.4188585,30.5575935,12.74z/data=!4m10!1m2!2m1!1z0L3QsNGC0Y_QttC90ZYg0YHRgtC10LvRlg!3m6!1s0x40d4c5e03a1e555b:0xbcfef29c0dc6fb7f!8m2!3d50.4180038!4d30.6253901!15sChnQvdCw0YLRj9C20L3RliDRgdGC0LXQu9GWkgEcZmluaXNoaW5nX21hdGVyaWFsc19zdXBwbGllcuABAA!16s%2Fg%2F11h4g81r8s?entry=ttu&g_ep=EgoyMDI2MDIyMy4wIKXMDSoASAFQAw%3D%3D" target="_blank" class="absolute bottom-10 right-10 hidden lg:block animate-bounce hover:scale-105 transition-transform">
+            <div class="bg-white/10 backdrop-blur-xl border border-white/20 p-4 rounded-2xl">
+                <div class="flex items-center space-x-3">
+                    <div class="bg-amber-500 text-white p-2 rounded-lg font-bold">5.0</div>
+                    <div>
+                        <p class="text-sm font-bold text-white">Google Рейтинг</p>
+                        <p class="text-xs text-gray-300">76 відгуків клієнтів</p>
+                    </div>
+                </div>
+            </div>
+        </a>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-20 bg-gray-50">
+        <div class="container mx-auto px-4 md:px-6">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                <div class="relative">
+                    <div class="rounded-3xl overflow-hidden shadow-2xl">
+                        <img src="https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?auto=format&fit=crop&q=80&w=1000" alt="Професійний монтаж" class="w-full h-auto object-cover">
+                    </div>
+                    <div class="absolute -bottom-6 -right-6 bg-blue-600 text-white p-8 rounded-3xl hidden md:block shadow-xl">
+                        <p class="text-4xl font-bold mb-1">10+</p>
+                        <p class="text-sm uppercase tracking-wider font-semibold opacity-80">Років досвіду</p>
+                    </div>
+                </div>
+                <div class="space-y-6">
+                    <h2 class="text-3xl md:text-4xl font-serif font-bold text-gray-900">
+                        Ваш комфорт починається з <span class="text-blue-600">S LeveL</span>
+                    </h2>
+                    <p class="text-lg text-gray-600 leading-relaxed">
+                        Ми спеціалізуємося на створенні сучасних стельових рішень, які не лише прикрашають інтер’єр, а й забезпечують його довговічність.
+                    </p>
+                    <ul class="space-y-4">
+                        <li class="flex items-center space-x-3">
+                            <i data-lucide="check-circle-2" class="text-blue-600"></i>
+                            <span class="text-gray-700 font-medium">Досвідчені майстри (понад 10 років)</span>
+                        </li>
+                        <li class="flex items-center space-x-3">
+                            <i data-lucide="check-circle-2" class="text-blue-600"></i>
+                            <span class="text-gray-700 font-medium">Якісні європейські матеріали</span>
+                        </li>
+                        <li class="flex items-center space-x-3">
+                            <i data-lucide="check-circle-2" class="text-blue-600"></i>
+                            <span class="text-gray-700 font-medium">Акуратний монтаж без пилу</span>
+                        </li>
+                        <li class="flex items-center space-x-3">
+                            <i data-lucide="check-circle-2" class="text-blue-600"></i>
+                            <span class="text-gray-700 font-medium">Рейтинг 5.0 (на основі 76 відгуків)</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="py-20 bg-white">
+        <div class="container mx-auto px-4 md:px-6">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <h2 class="text-3xl md:text-5xl font-serif font-bold mb-6">Наші послуги</h2>
+                <p class="text-gray-600 text-lg">Ми пропонуємо повний спектр рішень для вашої ідеальної стелі.</p>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8" id="services-grid">
+                <div class="group bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all border border-gray-100">
+                    <div class="aspect-video overflow-hidden"><img src="./public/portfolio/beluy-potopok.jpeg.webp" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"></div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-3 group-hover:text-blue-600">Матові натяжні стелі</h3>
+                        <p class="text-gray-600 text-sm">Класичний вигляд, що ідеально імітує поштукатурену поверхню.</p>
+                    </div>
+                </div>
+                <div class="group bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all border border-gray-100">
+                    <div class="aspect-video overflow-hidden"><img src="./public/portfolio/noroot.png" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"></div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-3 group-hover:text-blue-600">Глянцеві стелі</h3>
+                        <p class="text-gray-600 text-sm">Візуально розширюють простір завдяки дзеркальному ефекту.</p>
+                    </div>
+                </div>
+                <div class="group bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all border border-gray-100">
+                    <div class="aspect-video overflow-hidden"><img src="./public/portfolio/119319.jpg" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"></div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-3 group-hover:text-blue-600">Дворівневі конструкції</h3>
+                        <p class="text-gray-600 text-sm">Складні геометричні рішення для зонування приміщення.</p>
+                    </div>
+                </div>
+                <div class="group bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all border border-gray-100">
+                    <div class="aspect-video overflow-hidden"><img src="./public/portfolio/mnogourovnivie-s-podsvetkoj.jpg" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"></div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-3 group-hover:text-blue-600">Стелі з LED-підсвіткою</h3>
+                        <p class="text-gray-600 text-sm">Створення атмосфери за допомогою світлових ліній.</p>
+                    </div>
+                </div>
+                <div class="group bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all border border-gray-100">
+                    <div class="aspect-video overflow-hidden"><img src="./public/portfolio/Foto_Natyazhnogo_Tenevogo_Potolka-El_Decor_16.webp" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"></div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-3 group-hover:text-blue-600">Тіньовий профіль</h3>
+                        <p class="text-gray-600 text-sm">Ефект "літаючої" стелі з витонченим зазором.</p>
+                    </div>
+                </div>
+                <div class="group bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all border border-gray-100">
+                    <div class="aspect-video overflow-hidden"><img src="./public/portfolio/IMG-3c09224c6a73f668f547a9016d732d03-V.jpg" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"></div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-3 group-hover:text-blue-600">Фотодрук</h3>
+                        <p class="text-gray-600 text-sm">Унікальні принти для створення неповторного дизайну.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Portfolio Section -->
+    <section id="portfolio" class="py-20 bg-gray-900 text-white">
+        <div class="container mx-auto px-4 md:px-6">
+            <div class="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-6">
+                <div class="max-w-xl">
+                    <h2 class="text-3xl md:text-5xl font-serif font-bold mb-4">Наші роботи</h2>
+                    <p class="text-gray-400">Галерея реальних проектів у Києві: сучасне освітлення та преміум матеріали.</p>
+                </div>
+            </div>
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4" id="portfolio-grid">
+                <div class="portfolio-item relative group cursor-pointer overflow-hidden rounded-xl aspect-[4/3]">
+                    <img src="./public/portfolio/photo_10_2023-09-21_.jpg.webp" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" alt="Наші роботи">
+                    <div class="absolute inset-0 bg-black/20 opacity-0 group-hover:opacity-100 transition-opacity flex flex-col items-center justify-center">
+                        <i data-lucide="zoom-in" class="text-white"></i>
+                    </div>
+                </div>
+                <div class="portfolio-item relative group cursor-pointer overflow-hidden rounded-xl aspect-[4/3]">
+                    <img src="./public/portfolio/photo_2023-04-21_13-.jpg (1).webp" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" alt="Наші роботи">
+                    <div class="absolute inset-0 bg-black/20 opacity-0 group-hover:opacity-100 transition-opacity flex flex-col items-center justify-center">
+                        <i data-lucide="zoom-in" class="text-white"></i>
+                    </div>
+                </div>
+                <div class="portfolio-item relative group cursor-pointer overflow-hidden rounded-xl aspect-[4/3]">
+                    <img src="./public/portfolio/photo_2023-09-21_12-.jpg (1).webp" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" alt="Наші роботи">
+                    <div class="absolute inset-0 bg-black/20 opacity-0 group-hover:opacity-100 transition-opacity flex flex-col items-center justify-center">
+                        <i data-lucide="zoom-in" class="text-white"></i>
+                    </div>
+                </div>
+                <div class="portfolio-item relative group cursor-pointer overflow-hidden rounded-xl aspect-[4/3]">
+                    <img src="./public/portfolio/photo_2023-09-21_12-.jpg.webp" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" alt="Наші роботи">
+                    <div class="absolute inset-0 bg-black/20 opacity-0 group-hover:opacity-100 transition-opacity flex flex-col items-center justify-center">
+                        <i data-lucide="zoom-in" class="text-white"></i>
+                    </div>
+                </div>
+                <div class="portfolio-item relative group cursor-pointer overflow-hidden rounded-xl aspect-[4/3]">
+                    <img src="./public/portfolio/photo_2023-04-21_13-.jpg.webp" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" alt="Наші роботи">
+                    <div class="absolute inset-0 bg-black/20 opacity-0 group-hover:opacity-100 transition-opacity flex flex-col items-center justify-center">
+                        <i data-lucide="zoom-in" class="text-white"></i>
+                    </div>
+                </div>
+                <div class="portfolio-item relative group cursor-pointer overflow-hidden rounded-xl aspect-[4/3]">
+                    <img src="./public/portfolio/photo_2023-04-21_13-.jpg" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" alt="Наші роботи">
+                    <div class="absolute inset-0 bg-black/20 opacity-0 group-hover:opacity-100 transition-opacity flex flex-col items-center justify-center">
+                        <i data-lucide="zoom-in" class="text-white"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Why Us (Benefits) -->
+    <section class="py-24 bg-white">
+        <div class="container mx-auto px-4 md:px-6">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-serif font-bold mb-4">Чому обирають S LeveL</h2>
+                <div class="w-24 h-1 bg-blue-600 mx-auto"></div>
+            </div>
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-8">
+                <div class="text-center space-y-4">
+                    <div class="inline-flex items-center justify-center w-16 h-16 rounded-2xl bg-gray-50 mb-2 transform transition-transform hover:-translate-y-2">
+                        <i data-lucide="star" class="w-8 h-8 text-amber-500"></i>
+                    </div>
+                    <h3 class="text-lg font-bold">Рейтинг 5.0</h3>
+                    <p class="text-sm text-gray-500 leading-relaxed">76 позитивних відгуків</p>
+                </div>
+                <div class="text-center space-y-4">
+                    <div class="inline-flex items-center justify-center w-16 h-16 rounded-2xl bg-gray-50 mb-2 transform transition-transform hover:-translate-y-2">
+                        <i data-lucide="ruler" class="w-8 h-8 text-blue-600"></i>
+                    </div>
+                    <h3 class="text-lg font-bold">Безкоштовний замір</h3>
+                    <p class="text-sm text-gray-500 leading-relaxed">Виїзд та консультація</p>
+                </div>
+                <div class="text-center space-y-4">
+                    <div class="inline-flex items-center justify-center w-16 h-16 rounded-2xl bg-gray-50 mb-2 transform transition-transform hover:-translate-y-2">
+                        <i data-lucide="timer" class="w-8 h-8 text-green-600"></i>
+                    </div>
+                    <h3 class="text-lg font-bold">Швидкий монтаж</h3>
+                    <p class="text-sm text-gray-500 leading-relaxed">Всього за 1 день</p>
+                </div>
+                <div class="text-center space-y-4">
+                    <div class="inline-flex items-center justify-center w-16 h-16 rounded-2xl bg-gray-50 mb-2 transform transition-transform hover:-translate-y-2">
+                        <i data-lucide="shield" class="w-8 h-8 text-indigo-600"></i>
+                    </div>
+                    <h3 class="text-lg font-bold">Гарантія якості</h3>
+                    <p class="text-sm text-gray-500 leading-relaxed">Офіційний договір</p>
+                </div>
+                <div class="text-center space-y-4">
+                    <div class="inline-flex items-center justify-center w-16 h-16 rounded-2xl bg-gray-50 mb-2 transform transition-transform hover:-translate-y-2">
+                        <i data-lucide="gem" class="w-8 h-8 text-purple-600"></i>
+                    </div>
+                    <h3 class="text-lg font-bold">Преміальні матеріали</h3>
+                    <p class="text-sm text-gray-500 leading-relaxed">Європейські бренди</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Reviews Section -->
+    <section id="reviews" class="py-20 bg-blue-50">
+        <div class="container mx-auto px-4 md:px-6">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-5xl font-serif font-bold mb-4">Відгуки клієнтів</h2>
+                <div class="flex items-center justify-center space-x-2 mt-4">
+                    <div class="flex text-amber-500">
+                        <i data-lucide="star" class="fill-current w-5 h-5"></i>
+                        <i data-lucide="star" class="fill-current w-5 h-5"></i>
+                        <i data-lucide="star" class="fill-current w-5 h-5"></i>
+                        <i data-lucide="star" class="fill-current w-5 h-5"></i>
+                        <i data-lucide="star" class="fill-current w-5 h-5"></i>
+                    </div>
+                    <span class="font-bold text-lg">5.0 / 5</span>
+                </div>
+            </div>
+            
+            <!-- Existing Reviews Grid -->
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16">
+                <div class="bg-white p-8 rounded-3xl shadow-sm border border-blue-100 relative">
+                    <i data-lucide="quote" class="absolute top-6 right-6 text-blue-50 w-12 h-12"></i>
+                    <div class="flex mb-4 text-amber-500">
+                        <i data-lucide="star" class="fill-current w-4 h-4"></i><i data-lucide="star" class="fill-current w-4 h-4"></i><i data-lucide="star" class="fill-current w-4 h-4"></i><i data-lucide="star" class="fill-current w-4 h-4"></i><i data-lucide="star" class="fill-current w-4 h-4"></i>
+                    </div>
+                    <p class="text-gray-700 italic mb-6">"Дуже задоволений роботою! Майстри приїхали вчасно, зробили все акуратно за один день. Тіньовий профіль виглядає неймовірно."</p>
+                    <div class="flex justify-between items-center"><span class="font-bold">Олександр К.</span><span class="text-xs text-gray-400">12.05.2024</span></div>
+                </div>
+                <div class="bg-white p-8 rounded-3xl shadow-sm border border-blue-100 relative">
+                    <i data-lucide="quote" class="absolute top-6 right-6 text-blue-50 w-12 h-12"></i>
+                    <div class="flex mb-4 text-amber-500">
+                        <i data-lucide="star" class="fill-current w-4 h-4"></i><i data-lucide="star" class="fill-current w-4 h-4"></i><i data-lucide="star" class="fill-current w-4 h-4"></i><i data-lucide="star" class="fill-current w-4 h-4"></i><i data-lucide="star" class="fill-current w-4 h-4"></i>
+                    </div>
+                    <p class="text-gray-700 italic mb-6">"Замовляли глянцеву стелю у вітальню. Якість матеріалів на висоті, ніякого запаху. Рекомендую S LeveL!"</p>
+                    <div class="flex justify-between items-center"><span class="font-bold">Марина В.</span><span class="text-xs text-gray-400">28.04.2024</span></div>
+                </div>
+                <div class="bg-white p-8 rounded-3xl shadow-sm border border-blue-100 relative">
+                    <i data-lucide="quote" class="absolute top-6 right-6 text-blue-50 w-12 h-12"></i>
+                    <div class="flex mb-4 text-amber-500">
+                        <i data-lucide="star" class="fill-current w-4 h-4"></i><i data-lucide="star" class="fill-current w-4 h-4"></i><i data-lucide="star" class="fill-current w-4 h-4"></i><i data-lucide="star" class="fill-current w-4 h-4"></i><i data-lucide="star" class="fill-current w-4 h-4"></i>
+                    </div>
+                    <p class="text-gray-700 italic mb-6">"Професійний підхід від заміру до монтажу. Допомогли з вибором освітлення. Все чітко та в обумовлені терміни."</p>
+                    <div class="flex justify-between items-center"><span class="font-bold">Віктор Т.</span><span class="text-xs text-gray-400">15.04.2024</span></div>
+                </div>
+            </div>
+
+            <!-- Write Review Section -->
+            <div class="max-w-4xl mx-auto bg-white rounded-[2rem] shadow-xl overflow-hidden border border-blue-100 p-8 md:p-12">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+                    <div>
+                        <h3 class="text-2xl font-bold mb-4">Ваш досвід важливий для нас</h3>
+                        <p class="text-gray-600 mb-6">Будь ласка, залиште свій відгук безпосередньо в Google Maps. Це допоможе іншим клієнтам зробити правильний вибір, а нам — ставати ще кращими.</p>
+                        <div class="flex flex-col space-y-4">
+                            <a href="https://search.google.com/local/writereview?fid=0x40d4c5e03a1e555b:0xbcfef29c0dc6fb7f" target="_blank" class="google-btn flex items-center justify-center space-x-3 px-8 py-4 rounded-xl font-bold text-lg">
+                                <svg class="w-6 h-6" viewBox="0 0 24 24"><path fill="currentColor" d="M12.48 10.92v3.28h7.84c-.24 1.84-2.21 5.39-7.84 5.39-4.84 0-8.79-4.01-8.79-8.91s3.95-8.91 8.79-8.91c2.75 0 4.59 1.17 5.64 2.18l2.58-2.58c-1.66-1.55-3.81-2.49-8.22-2.49-6.63 0-12 5.37-12 12s5.37 12 12 12c6.93 0 11.53-4.87 11.53-11.72 0-.79-.08-1.4-.24-2.02h-11.29z"/></svg>
+                                <span>Написати відгук у Google</span>
+                            </a>
+                            <a href="https://www.google.com/maps/place/S+LeveL+--+%D0%BD%D0%B0%D1%82%D1%8F%D0%B6%D0%BD%D1%8B%D0%B5+%D0%BF%D0%BE%D1%82%D0%BE%D0%BB%D0%BA%D0%B8/@50.4188585,30.5575935,12.74z/data=!4m10!1m2!2m1!1z0L3QsNGC0Y_QttC90ZYg0YHRgtC10LvRlg!3m6!1s0x40d4c5e03a1e555b:0xbcfef29c0dc6fb7f!8m2!3d50.4180038!4d30.6253901!15sChnQvdCw0YLRj9C20L3RliDRgdGC0LXQu9GWkgEcZmluaXNoaW5nX21hdGVyaWFsc19zdXBwbGllcuABAA!16s%2Fg%2F11h4g81r8s?entry=ttu&g_ep=EgoyMDI2MDIyMy4wIKXMDSoASAFQAw%3D%3D" target="_blank" class="flex items-center justify-center space-x-2 text-gray-500 hover:text-blue-600 transition-colors">
+                                <i data-lucide="external-link" class="w-4 h-4"></i>
+                                <span class="text-sm">Переглянути всі відгуки на мапі</span>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="hidden md:block relative">
+                        <img src="https://images.unsplash.com/photo-1552581234-26160f608093?auto=format&fit=crop&q=80&w=600" class="rounded-2xl shadow-lg" alt="Задоволені клієнти">
+                        <div class="absolute -bottom-4 -left-4 bg-white p-4 rounded-xl shadow-lg border border-gray-100">
+                            <div class="flex items-center space-x-2">
+                                <div class="bg-green-100 text-green-600 p-1 rounded-full"><i data-lucide="check" class="w-4 h-4"></i></div>
+                                <span class="text-xs font-bold text-gray-800">Перевірено Google</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-20 bg-white">
+        <div class="container mx-auto px-4 md:px-6">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
+                <div class="space-y-10">
+                    <div>
+                        <h2 class="text-3xl md:text-5xl font-serif font-bold mb-6">Контакти</h2>
+                        <div class="space-y-6">
+                            <div class="flex items-start space-x-4">
+                                <div class="bg-blue-50 p-3 rounded-xl text-blue-600"><i data-lucide="map-pin"></i></div>
+                                <div><h4 class="font-bold">Адреса</h4><p class="text-gray-600 text-sm">вулиця Здолбунівська, 13, Київ, 02081</p></div>
+                            </div>
+                            <div class="flex items-start space-x-4">
+                                <div class="bg-blue-50 p-3 rounded-xl text-blue-600"><i data-lucide="phone"></i></div>
+                                <div><h4 class="font-bold">Телефон</h4><a href="tel:0986681181" class="text-blue-600 font-bold">098 668 1181</a></div>
+                            </div>
+                            <div class="flex items-start space-x-4">
+                                <div class="bg-blue-50 p-3 rounded-xl text-blue-600"><i data-lucide="clock"></i></div>
+                                <div><h4 class="font-bold">Графік роботи</h4><p class="text-gray-600 text-sm">Пн-Сб: 09:00 - 20:00</p></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="h-80 rounded-3xl overflow-hidden border border-gray-100 shadow-lg">
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2542.23!2d30.62539!3d50.418!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x40d4c5e03a1e555b%3A0xbcfef29c0dc6fb7f!2zUyBMZXZlTCAtLSDQvdCw0YLRj9C20L3Ri9C1INC_0L7RgtC_0LvQutC4!5e0!3m2!1suk!2sua!4v1715800000000!5m2!1suk!2sua" width="100%" height="100%" style="border: 0" allowfullscreen="" loading="lazy"></iframe>
+                    </div>
+                </div>
+                <div class="bg-gray-50 p-8 md:p-12 rounded-[2rem] border border-gray-100 shadow-sm">
+                    <h3 class="text-2xl font-bold mb-8">Залишити заявку</h3>
+                    <form id="contact-form" class="space-y-6">
+                        <div class="space-y-2">
+                            <label class="text-sm font-semibold text-gray-700 px-1">Ім’я</label>
+                            <input required type="text" placeholder="Як до вас звертатися?" class="w-full px-6 py-4 rounded-xl border border-gray-200 focus:outline-none focus:ring-2 focus:ring-blue-500/20 focus:border-blue-500 transition-all bg-white">
+                        </div>
+                        <div class="space-y-2">
+                            <label class="text-sm font-semibold text-gray-700 px-1">Телефон</label>
+                            <input required type="tel" placeholder="+380" class="w-full px-6 py-4 rounded-xl border border-gray-200 focus:outline-none focus:ring-2 focus:ring-blue-500/20 focus:border-blue-500 transition-all bg-white">
+                        </div>
+                        <div class="space-y-2">
+                            <label class="text-sm font-semibold text-gray-700 px-1">Тип стелі</label>
+                            <select class="w-full px-6 py-4 rounded-xl border border-gray-200 focus:outline-none focus:ring-2 focus:ring-blue-500/20 focus:border-blue-500 bg-white">
+                                <option>Матова</option><option>Глянцева</option><option>Дворівнева</option><option>LED-підсвітка</option><option>Тіньовий профіль</option>
+                            </select>
+                        </div>
+                        <div class="space-y-2">
+                            <label class="text-sm font-semibold text-gray-700 px-1">Повідомлення</label>
+                            <textarea rows="3" placeholder="Ваші побажання" class="w-full px-6 py-4 rounded-xl border border-gray-200 focus:outline-none focus:ring-2 focus:ring-blue-500/20 focus:border-blue-500 bg-white resize-none"></textarea>
+                        </div>
+                        <button type="submit" class="w-full bg-blue-600 hover:bg-blue-700 text-white font-bold py-5 rounded-xl transition-all shadow-lg flex items-center justify-center space-x-2">
+                            <span>Замовити консультацію</span><i data-lucide="send" class="w-4 h-4"></i>
+                        </button>
+                    </form>
+                    <div id="form-success" class="hidden text-center py-12 animate-fade-up">
+                        <div class="w-16 h-16 bg-green-100 text-green-600 rounded-full flex items-center justify-center mx-auto mb-4"><i data-lucide="check" class="w-8 h-8"></i></div>
+                        <h4 class="text-xl font-bold">Дякуємо!</h4>
+                        <p class="text-gray-600">Ми зателефонуємо вам найближчим часом.</p>
+                        <button onclick="resetForm()" class="mt-4 text-blue-600 font-bold underline">Надіслати ще раз</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-950 text-white pt-16 pb-8 border-t border-white/5">
+        <div class="container mx-auto px-4 md:px-6">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-12 mb-16">
+                <div>
+                    <span class="text-3xl font-bold tracking-tighter mb-6 block">S <span class="text-blue-500">LeveL</span></span>
+                    <p class="text-gray-500 text-sm mb-6">Преміальні натяжні стелі у Києві. Якість та стиль у кожній деталі.</p>
+                    <div class="flex space-x-4">
+                        <a href="https://www.instagram.com/slevel_potolok/" target="_blank" rel="noopener noreferrer" class="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center hover:bg-blue-600 transition-colors"><i data-lucide="instagram" class="w-5 h-5"></i></a>
+                        <a href="#" class="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center hover:bg-blue-600 transition-colors"><i data-lucide="facebook" class="w-5 h-5"></i></a>
+                    </div>
+                </div>
+                <div><h4 class="font-bold mb-6">Навігація</h4><ul class="space-y-4 text-gray-400 text-sm"><li><a href="#about" class="hover:text-white">Про нас</a></li><li><a href="#services" class="hover:text-white">Послуги</a></li><li><a href="#portfolio" class="hover:text-white">Портфоліо</a></li></ul></div>
+                <div><h4 class="font-bold mb-6">Послуги</h4><ul class="space-y-4 text-gray-400 text-sm"><li><a href="#services" class="hover:text-white">Тіньові стелі</a></li><li><a href="#services" class="hover:text-white">LED-підсвітка</a></li><li><a href="#services" class="hover:text-white">Матові стелі</a></li></ul></div>
+                <div><h4 class="font-bold mb-6">Контакти</h4><ul class="space-y-4 text-gray-400 text-sm"><li>Київ, вул. Здолбунівська, 13</li><li>098 668 1181</li><li>slevel@ceiling.ua</li></ul></div>
+            </div>
+            <div class="pt-8 border-t border-white/5 flex justify-between items-center text-xs text-gray-600">
+                <p>© 2024 S LeveL. Усі права захищені.</p>
+                <button onclick="window.scrollTo({top:0, behavior:'smooth'})" class="w-10 h-10 bg-blue-600 rounded-full flex items-center justify-center text-white"><i data-lucide="arrow-up" class="w-5 h-5"></i></button>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Lightbox -->
+    <div id="lightbox" class="fixed inset-0 z-[100] bg-black/95 hidden items-center justify-center p-4 animate-fade-up">
+        <button id="close-lightbox" class="absolute top-6 right-6 text-white"><i data-lucide="x" class="w-10 h-10"></i></button>
+        <img id="lightbox-img" src="" class="max-w-full max-h-[90vh] object-contain rounded-lg">
+    </div>
+
+    <!-- Initialization Script -->
+    <script type="module" src="./index.js"></script>
+<script type="module" src="/index.tsx"></script>
+</body>
+</html>
